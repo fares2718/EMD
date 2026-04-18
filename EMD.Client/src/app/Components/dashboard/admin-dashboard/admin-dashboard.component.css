@@ -1,0 +1,34 @@
+.dashboard-page {
+  padding: 20px;
+  background: #f4f6f9;
+}
+
+.dashboard-header h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.dashboard-card {
+  padding: 20px;
+  border-radius: 12px;
+  border: none;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.dashboard-card h6 {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.dashboard-card h4 {
+  color: #3498db;
+  margin-top: 10px;
+}
+
+/* Quick actions */
+.card h5 {
+  color: #2c3e50;
+}

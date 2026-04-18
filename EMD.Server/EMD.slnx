@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="EMD.API/EMD.API.csproj" />
+  <Project Path="EMD.BLL/EMD.BLL.csproj" />
+  <Project Path="EMD.DAL/EMD.DAL.csproj" />
+  <Project Path="EMD.EF/EMD.EF.csproj" />
+</Solution>

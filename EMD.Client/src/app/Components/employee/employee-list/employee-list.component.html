@@ -1,0 +1,120 @@
+<div class="employee-list-page container-fluid">
+
+  <!-- Header -->
+  <div class="employee-list-header">
+    <h3>Employees</h3>
+  </div>
+
+  <!-- Filters -->
+<form [formGroup]="filtersForm">
+  <div class="card filter-card shadow-sm p-3 mb-4">
+    <div class="row g-3">
+
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search Name"
+               formControlName="name">
+      </div>
+
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search Email"
+               formControlName="email">
+      </div>
+
+      <div class="col-md-3">
+        <input type="text" class="form-control" placeholder="Search Phone"
+               formControlName="phone">
+      </div>
+
+      <div class="col-md-3">
+        <select class="form-select" formControlName="city">
+          <option value="">City</option>
+          <option >City</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <select class="form-select" formControlName="state">
+          <option value="">State</option>
+          <option >State</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <select class="form-select" formControlName="designationId">
+          <option value="">Designation</option>
+          <option *ngFor="let d of designations" [value]="d.id">{{ d.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select" formControlName="sortBy">
+          <option value="name">Sort By Name</option>
+          <option value="email">Email</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <select class="form-select" formControlName="isDescending">
+          <option [value]="false">Ascending</option>
+          <option [value]="true">Descending</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 d-flex gap-2">
+        <button class="btn btn-primary w-100" type="button" (click)="applyFilters()">Apply</button>
+        <button class="btn btn-outline-secondary w-100" type="button" (click)="resetFilters()">Reset</button>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+  <!-- Table -->
+  <div class="card table-card shadow-sm">
+    <div class="table-responsive">
+      <table class="table employee-table align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Name ⬍</th>
+            <th>Email ⬍</th>
+            <th>Phone</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Designation</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @if(employees().length > 0)
+          {
+            @for(emp of employees();track emp.employeeId) {
+            <tr>
+              <td>{{emp.employeeName}}</td>
+              <td>{{emp.email}}</td>
+              <td>{{emp.phoneNo}}</td>
+              <td>{{emp.city}}</td>
+              <td>{{emp.state}}</td>
+              <td>{{emp.designation}}</td>
+              <td class="employee-actions text-center">
+              <!-- <button class="btn btn-sm btn-info text-white">View</button> -->
+              <!-- <button class="btn btn-sm btn-warning text-white">Edit</button> -->
+              <button class="btn btn-sm btn-danger" (click)="onDeleteBtnClicked(emp.employeeId)">Delete</button>
+              </td>
+            </tr>
+          }
+          }@else {
+            <span>no employees found.</span>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="employee-pagination">
+      <button class="btn btn-outline-secondary btn-sm" (click)="previousPage()">Previous</button>
+      <span>Page {{ filtersForm.value.pageNumber }}</span>
+      <button class="btn btn-outline-secondary btn-sm" (click)="nextPage()">Next</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+/* Page background */
+.employee-list-page {
+  background-color: #f4f6f9;
+  padding: 20px;
+}
+
+/* Header */
+.employee-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.employee-list-header h3 {
+  color: #2c3e50;
+}
+
+/* Filter Card */
+.filter-card {
+  border-radius: 12px;
+  border: none;
+}
+
+.filter-card .form-control,
+.filter-card .form-select {
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Table Card */
+.table-card {
+  border-radius: 12px;
+  border: none;
+  overflow: hidden;
+}
+
+/* Table Styling */
+.employee-table thead {
+  background-color: #3498db;
+  color: white;
+}
+
+.employee-table th {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.employee-table td {
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* Hover effect */
+.employee-table tbody tr:hover {
+  background-color: #f2f8ff;
+}
+
+/* Action buttons */
+.employee-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+  align-items: center; 
+}
+
+.employee-actions .btn {
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+/* Pagination */
+.employee-pagination {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

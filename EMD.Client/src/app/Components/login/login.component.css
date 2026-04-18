@@ -1,0 +1,77 @@
+/* General form container */
+form {
+  width: 400px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.control-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+
+.control label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #34495e;
+}
+
+.control input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.control input:focus {
+  border-color: #3498db; 
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  outline: none;
+}
+
+button.button {
+  padding: 12px;
+  background-color: #3498db; 
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+button.button:hover {
+  background-color: #2980b9;
+}
+
+.control-error {
+  color: #e74c3c; 
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+@media (max-width: 450px) {
+  form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

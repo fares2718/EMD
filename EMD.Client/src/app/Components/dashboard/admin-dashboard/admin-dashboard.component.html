@@ -1,0 +1,77 @@
+<div class="dashboard-page container-fluid">
+
+  <!-- Header Row -->
+  <div class="dashboard-header">
+    <h3>Admin Dashboard</h3>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <h6>Total Employees</h6>
+        <h4>{{totalEmployees()}}</h4>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <h6>Departments</h6>
+        <h4>{{totalDepartments()}}</h4>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <h6>Designations</h6>
+        <h4>{{totalDesignations()}}</h4>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card dashboard-card">
+        <h6>Active Today</h6>
+        <h4>98%</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="card p-3 mb-4">
+    <h5 class="mb-3">Quick Actions</h5>
+    <div class="d-flex gap-3 flex-wrap">
+      <button class="btn btn-primary" (click)="onAddEmployeeClicked()">+ Add Employee</button>
+      <button class="btn btn-outline-primary" (click)="onViewEmployeesClicked()">View Employees</button>
+      <button class="btn btn-outline-secondary">Manage Departments</button>
+      <button class="btn btn-outline-secondary">Manage Designations</button>
+    </div>
+  </div>
+
+  <!-- Recent Employees -->
+  <div class="card table-card shadow-sm">
+    <div class="p-3">
+      <h5>Recent Employees</h5>
+    </div>
+
+    <table class="table employee-table mb-0">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{currentUser()?.employeeName}}</td>
+          <td>{{currentUser()?.department}}</td>
+          <td>{{currentUser()?.designation}}</td>
+          <td><span class="badge bg-success">Active</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
