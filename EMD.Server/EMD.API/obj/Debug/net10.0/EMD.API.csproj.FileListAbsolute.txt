@@ -256,3 +256,4 @@ C:/Users/Elliot/Projects/EMD/EMD.Server/EMD.API/obj/Debug/net10.0/ref/EMD.API.dl
 /home/meshfares/Projects/EMD/EMD.Server/EMD.API/obj/Debug/net10.0/EMD.API.pdb
 /home/meshfares/Projects/EMD/EMD.Server/EMD.API/obj/Debug/net10.0/EMD.API.genruntimeconfig.cache
 /home/meshfares/Projects/EMD/EMD.Server/EMD.API/obj/Debug/net10.0/ref/EMD.API.dll
+/home/meshfares/Projects/EMD/EMD.Server/EMD.API/obj/Debug/net10.0/EMD.API.sourcelink.json

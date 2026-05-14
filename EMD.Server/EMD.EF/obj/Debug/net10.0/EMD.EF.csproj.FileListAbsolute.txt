@@ -46,3 +46,4 @@ C:/Users/Elliot/Projects/EMD/EMD.Server/EMD.EF/obj/Debug/net10.0/ref/EMD.EF.dll
 /home/meshfares/Projects/EMD/EMD.Server/EMD.EF/obj/Debug/net10.0/refint/EMD.EF.dll
 /home/meshfares/Projects/EMD/EMD.Server/EMD.EF/obj/Debug/net10.0/EMD.EF.pdb
 /home/meshfares/Projects/EMD/EMD.Server/EMD.EF/obj/Debug/net10.0/ref/EMD.EF.dll
+/home/meshfares/Projects/EMD/EMD.Server/EMD.EF/obj/Debug/net10.0/EMD.EF.sourcelink.json

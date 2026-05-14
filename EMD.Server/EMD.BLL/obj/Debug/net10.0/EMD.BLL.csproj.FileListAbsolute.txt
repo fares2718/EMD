@@ -66,3 +66,4 @@ C:/Users/Elliot/Projects/EMD/EMD.Server/EMD.BLL/obj/Debug/net10.0/ref/EMD.BLL.dl
 /home/meshfares/Projects/EMD/EMD.Server/EMD.BLL/obj/Debug/net10.0/refint/EMD.BLL.dll
 /home/meshfares/Projects/EMD/EMD.Server/EMD.BLL/obj/Debug/net10.0/EMD.BLL.pdb
 /home/meshfares/Projects/EMD/EMD.Server/EMD.BLL/obj/Debug/net10.0/ref/EMD.BLL.dll
+/home/meshfares/Projects/EMD/EMD.Server/EMD.BLL/obj/Debug/net10.0/EMD.BLL.sourcelink.json

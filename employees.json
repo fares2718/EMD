@@ -1,0 +1,41 @@
+[
+  {
+    "employeeName": "John Smith",
+    "phoneNo": "9000000001",
+    "email": "john1@admin.com",
+    "password": "Password123",
+    "role": "Admin",
+    "city": "Chicago",
+    "state": "Illinois",
+    "pincode": "100001",
+    "address": "Address 1",
+    "altPhoneNo": "9100000001",
+    "designationId": 1
+  },
+  {
+    "employeeName": "Alice Brown",
+    "phoneNo": "9000000002",
+    "email": "alice2@employee.com",
+    "password": "Password123",
+    "role": "Employee",
+    "city": "Dallas",
+    "state": "Texas",
+    "pincode": "100002",
+    "address": "Address 2",
+    "altPhoneNo": "9100000002",
+    "designationId": 2
+  },
+  {
+    "employeeName": "Robert King",
+    "phoneNo": "9000000003",
+    "email": "robert3@employee.com",
+    "password": "Password123",
+    "role": "Employee",
+    "city": "Miami",
+    "state": "Florida",
+    "pincode": "100003",
+    "address": "Address 3",
+    "altPhoneNo": "9100000003",
+    "designationId": 2
+  }
+]

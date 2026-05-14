@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace EMD.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
 
@@ -27,7 +27,7 @@ namespace EMD.API.Controllers
             _departmentBusiness = departmentBusiness;
             _mapper = mapper;
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         //[EnableRateLimiting("PostLimiter")]
         [HttpPost("Add")]
         [ProducesResponseType(StatusCodes.Status201Created)]
