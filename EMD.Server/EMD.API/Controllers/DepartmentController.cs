@@ -98,7 +98,7 @@ namespace EMD.API.Controllers
                 : NotFound(result.Message);
         }
 
-        [EnableRateLimiting("GetLimiter")]
+        //[EnableRateLimiting("GetLimiter")]
         [HttpGet("ActiveCount")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetActiveDepartmentsCount()

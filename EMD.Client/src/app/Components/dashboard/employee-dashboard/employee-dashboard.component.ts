@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../Services/auth.service';
 
 @Component({
   selector: 'app-employee-dashboard',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './employee-dashboard.component.css',
 })
 export class EmployeeDashboardComponent {
+private authService = inject(AuthService);
 
+currentUser =this.authService.currentUser;
 }

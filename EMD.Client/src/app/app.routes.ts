@@ -58,11 +58,11 @@ export const routes: Routes = [
                 component: EmployeeCard
             },
             {
-                path:'department',
+                path:'departments',
                 component:Department
             },
             {
-                path:'designation',
+                path:'designations',
                 component:Designation
             }
         ]

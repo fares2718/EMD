@@ -14,6 +14,6 @@ namespace EMD.EF.Models
         public DateTime RefreshTokenExpiresAt { get; set; }
         public DateTime? RefreshTokenRevokedAt { get; set; }
 
-        public Employee Employee { get; set; } = new Employee();
+        public Employee Employee { get; set; } = null!;
     }
 }

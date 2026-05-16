@@ -11,7 +11,7 @@ export class DepartmentService {
 
   private apiUrl = 'https://localhost:7082/api/Department';
 getDepartmentsCount(): Observable<number> {
-  return this.http.get<number>(`${this.apiUrl}/Count`,{withCredentials:true})
+  return this.http.get<number>(`${this.apiUrl}/ActiveCount`,{withCredentials:true})
   .pipe(
     catchError(() => {
       //this.errorService.showError('Could not load departments count');

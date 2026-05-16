@@ -18,7 +18,7 @@ namespace EMD.DAL.DA
 
         public async Task<int> AddSessionAsync(Session session)
         {
-            await _context.Sessions.AddAsync(session);
+            _context.Sessions.Add(session);
             await _context.SaveChangesAsync();
             return session.SessionId;
         }
@@ -35,7 +35,6 @@ namespace EMD.DAL.DA
         public async Task<Session?> GetSessionByIdAsync(int sessionId)
         {
             return await _context.Sessions
-            .AsNoTracking()
             .FindAsync(sessionId);
         }
 

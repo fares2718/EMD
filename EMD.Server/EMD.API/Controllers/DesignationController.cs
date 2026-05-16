@@ -57,7 +57,7 @@ namespace EMD.API.Controllers
                 : BadRequest(result.Message);
         }
 
-        [EnableRateLimiting("GetLimiter")]
+        //[EnableRateLimiting("GetLimiter")]
         [HttpGet("Count")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetDesignationsCount()

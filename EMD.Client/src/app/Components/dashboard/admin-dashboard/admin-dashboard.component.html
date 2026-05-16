@@ -16,7 +16,7 @@
 
     <div class="col-md-3">
       <div class="card dashboard-card">
-        <h6>Departments</h6>
+        <h6>Active Departments</h6>
         <h4>{{totalDepartments()}}</h4>
       </div>
     </div>
@@ -42,8 +42,8 @@
     <div class="d-flex gap-3 flex-wrap">
       <button class="btn btn-primary" (click)="onAddEmployeeClicked()">+ Add Employee</button>
       <button class="btn btn-outline-primary" (click)="onViewEmployeesClicked()">View Employees</button>
-      <button class="btn btn-outline-secondary">Manage Departments</button>
-      <button class="btn btn-outline-secondary">Manage Designations</button>
+      <button class="btn btn-outline-secondary" (click)="onManageDepartmentsClicked()">Manage Departments</button>
+      <button class="btn btn-outline-secondary" (click)="onManageDesignationsClicked()">Manage Designations</button>
     </div>
   </div>
 

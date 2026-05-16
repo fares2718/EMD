@@ -54,4 +54,11 @@ onViewEmployeesClicked(){
   this.router.navigate(['/employees']);
 }
 
+onManageDepartmentsClicked(){
+  this.router.navigate(['/departments']);
+}
+
+onManageDesignationsClicked(){
+this.router.navigate(['/designations']);
+}
 }
