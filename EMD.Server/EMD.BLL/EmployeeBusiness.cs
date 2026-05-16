@@ -74,10 +74,9 @@ namespace EMD.BLL
            int pageNumber,
            int pageSize)
         {
-             var listDTOs = (await _employeeDataAccess.FilterEmployeesAsync(
+            return await _employeeDataAccess.FilterEmployeesAsync(
                 name, email, phone, city, state, designationId,
-                sortBy, isDescending, pageNumber, pageSize)).Select(e => _mapper.Map<EmployeeDTO>(e));
-            return listDTOs.ToList();
+                sortBy, isDescending, pageNumber, pageSize);
         }
 
         public async Task<int> GetEmployeesCountAsync()

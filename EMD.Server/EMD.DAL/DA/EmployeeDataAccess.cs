@@ -1,4 +1,5 @@
 ﻿using EMD.EF;
+using EMD.EF.DTOs;
 using EMD.EF.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,7 +38,7 @@ namespace EMD.DAL.DA
             .CountAsync();
         }
 
-        public async Task<List<Employee>> FilterEmployeesAsync(
+        public async Task<List<EmployeeDTO>> FilterEmployeesAsync(
             string? name,
             string? email,
             string? phone,
@@ -87,6 +88,21 @@ namespace EMD.DAL.DA
             return await query
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
+                .Select(e => new EmployeeDTO
+                {
+                    EmployeeId = e.EmployeeId,
+                    EmployeeName = e.EmployeeName,
+                    Address = e.Address,
+                    City = e.City,
+                    AltPhoneNo = e.AltPhoneNo,
+                    Email = e.Email,
+                    PhoneNo = e.PhoneNo,
+                    Pincode = e.Pincode,
+                    Role = e.Role,
+                    State = e.State,
+                    Department = e.Designation.Department.DepartmentName,
+                    Designation = e.Designation.DesignationName
+                })
                 .ToListAsync();
         }
 
