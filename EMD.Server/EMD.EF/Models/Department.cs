@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EMD.EF.Models
 {
-    [Table("Departments")]
-    [Index(nameof(DepartmentName), IsUnique = true)]
     public class Department
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DepartmentId { get; set; }
 
         [Required, MaxLength(50)]
@@ -17,5 +14,7 @@ namespace EMD.EF.Models
         public string DepartmentName { get; set; } = string.Empty;
 
         public bool IsActive { get; set; } = true;
+
+        public List<Designation> Designations { get; set; } = new List<Designation>();
     }
 }
