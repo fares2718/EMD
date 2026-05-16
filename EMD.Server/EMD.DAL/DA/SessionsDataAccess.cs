@@ -25,14 +25,18 @@ namespace EMD.DAL.DA
 
         public async Task<List<Session>> GetSessionByUserIdAsync(int userId)
         {
-            var sessions = await _context.Sessions.Where(s => s.UserId == userId).ToListAsync();
+            var sessions = await _context.Sessions.Where(s => s.UserId == userId)
+            .AsNoTracking()
+            .ToListAsync();
 
             return sessions;
         }
 
         public async Task<Session?> GetSessionByIdAsync(int sessionId)
         {
-            return await _context.Sessions.FindAsync(sessionId);
+            return await _context.Sessions
+            .AsNoTracking()
+            .FindAsync(sessionId);
         }
 
         public async Task<bool> UpdateSessionAsync(Session session)
@@ -43,7 +47,6 @@ namespace EMD.DAL.DA
                 existingSession.RefreshTokenHash = session.RefreshTokenHash;
                 existingSession.RefreshTokenExpiresAt = session.RefreshTokenExpiresAt;
                 existingSession.RefreshTokenRevokedAt = session.RefreshTokenRevokedAt;
-                _context.Sessions.Update(existingSession);
                 await _context.SaveChangesAsync();
                 return true;
             }

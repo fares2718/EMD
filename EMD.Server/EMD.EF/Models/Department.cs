@@ -8,7 +8,6 @@ namespace EMD.EF.Models
     {
         public int DepartmentId { get; set; }
 
-        [Required, MaxLength(50)]
         [RegularExpression(@"^[\p{L}\s'-]+$",
             ErrorMessage = "Department name must contain only letters, spaces, apostrophes, and hyphens.")]
         public string DepartmentName { get; set; } = string.Empty;

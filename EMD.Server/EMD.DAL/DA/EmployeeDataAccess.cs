@@ -32,7 +32,9 @@ namespace EMD.DAL.DA
 
         public async Task<int> GetEmployeesCountAsync()
         {
-            return await _context.Employees.CountAsync();
+            return await _context.Employees
+            .AsNoTracking()
+            .CountAsync();
         }
 
         public async Task<List<Employee>> FilterEmployeesAsync(
@@ -127,8 +129,6 @@ namespace EMD.DAL.DA
             existing.Address = employee.Address;
             existing.AltPhoneNo = employee.AltPhoneNo;
             existing.DesignationId = employee.DesignationId;
-
-            _context.Employees.Update(existing);
             await _context.SaveChangesAsync();
             return true;
         }

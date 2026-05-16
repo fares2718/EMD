@@ -15,7 +15,7 @@ namespace EMD.DAL.DA
 
         public async Task<int> AddDepartmentAsync(Department department)
         {
-            await _context.Departments.AddAsync(department);
+            await _context.Departments.Add(department);
             await _context.SaveChangesAsync();
             return department.DepartmentId;
         }
@@ -32,12 +32,16 @@ namespace EMD.DAL.DA
 
         public async Task<List<Department>> GetAllDepartmentsAsync()
         {
-            return await _context.Departments.ToListAsync();
+            return await _context.Departments
+            .AsNoTracking()
+            .ToListAsync();
         }
 
         public async Task<Department?> GetDepartmentByIdAsync(int id)
         {
-            return await _context.Departments.FindAsync(id);
+            return await _context.Departments
+            .AsNoTracking()
+            .FindAsync(id);
         }
 
         public async Task<bool> UpdateDepartmentAsync(Department department)
@@ -47,7 +51,6 @@ namespace EMD.DAL.DA
                 return false;
             existingDepartment.DepartmentName = department.DepartmentName;
             existingDepartment.IsActive = department.IsActive;
-            _context.Departments.Update(existingDepartment);
             await _context.SaveChangesAsync();
             return true;
         }

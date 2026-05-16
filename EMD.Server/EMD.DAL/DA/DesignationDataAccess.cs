@@ -34,11 +34,13 @@ namespace EMD.DAL.DA
         public async Task<List<Designation>> GetAllDesignationsAsync()
         {
             return await _context.Designations
+                .AsNoTracking()
                 .ToListAsync();
         }
         public async Task<Designation?> GetDesignationByIdAsync(int id)
         {
             return await _context.Designations
+                .AsNoTracking()
                 .FindAsync(id);
         }
 
@@ -50,8 +52,6 @@ namespace EMD.DAL.DA
 
             existing.DesignationName = designation.DesignationName;
             existing.DepartmentId = designation.DepartmentId;
-
-            _context.Designations.Update(existing);
             await _context.SaveChangesAsync();
             return true;
         }
