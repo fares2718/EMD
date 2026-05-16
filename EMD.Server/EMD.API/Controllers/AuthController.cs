@@ -1,7 +1,7 @@
 ﻿using Azure.Core;
 using EMD.BLL;
 using EMD.BLL.DTOs;
-using EMD.BLL.DTOs.Auth;
+using EMD.EF.DTOs.Auth;
 using EMD.DAL.DA;
 using EMD.EF.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using EMD.EF.DTOs;
 
 namespace EMD.API.Controllers
 {

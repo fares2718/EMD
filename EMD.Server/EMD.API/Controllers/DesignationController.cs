@@ -68,31 +68,6 @@ namespace EMD.API.Controllers
 
         [Authorize(Roles = "Admin")]
         [EnableRateLimiting("GetLimiter")]
-        [HttpGet("Filter")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> FilterDesignations(
-            [FromQuery] int? departmentId,
-            [FromQuery] string? name)
-        {
-            var list = await _designationBusiness.GetAllDesignationsAsync();
-
-            if (departmentId.HasValue && departmentId > 0)
-                list = list.Where(d => d.DepartmentId == departmentId.Value).ToList();
-
-            if (!string.IsNullOrWhiteSpace(name))
-                list = list.Where(d => d.DesignationName.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
-
-            return list.Any()
-                ? Ok(list)
-                : NotFound("No designations match the filter criteria.");
-        }
-
-        [Authorize(Roles = "Admin")]
-        [EnableRateLimiting("GetLimiter")]
         [HttpGet("All")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

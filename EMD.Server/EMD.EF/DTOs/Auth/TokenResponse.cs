@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EMD.BLL.DTOs.Auth
+namespace EMD.EF.DTOs.Auth
 {
     public class TokenResponse
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace EMD.BLL.DTOs
+namespace EMD.EF.DTOs
 {
     public class AddEmployeeRequest
     {

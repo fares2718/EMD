@@ -1,6 +1,7 @@
 ﻿using EMD.EF;
 using EMD.EF.Models;
 using Microsoft.EntityFrameworkCore;
+using EMD.EF.DTOs;
 
 namespace EMD.DAL.DA
 {
@@ -38,10 +39,17 @@ namespace EMD.DAL.DA
         }
 
         // Get All
-        public async Task<List<Designation>> GetAllDesignationsAsync()
+        public async Task<List<DesignationDTO>> GetAllDesignationsAsync()
         {
             return await _context.Designations
                 .AsNoTracking()
+                .Select(d => new DesignationDTO
+                {
+                    DesignationId = d.DesignationId,
+                    DesignationName = d.DesignationName,
+                    DepartmentName = d.Department.DepartmentName
+                })
+                .OrderBy(d => d.DesignationName)
                 .ToListAsync();
         }
         public async Task<Designation?> GetDesignationByIdAsync(int id)

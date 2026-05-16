@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using EMD.BLL;
-using EMD.BLL.DTOs;
+using EMD.EF.DTOs;
 using EMD.EF.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
-using System.Security.Claims;
 
 namespace EMD.API.Controllers
 {

@@ -1,4 +1,5 @@
 ﻿using EMD.DAL.DA;
+using EMD.EF.DTOs;
 using EMD.EF.Models;
 
 namespace EMD.BLL
@@ -21,7 +22,7 @@ namespace EMD.BLL
                 return (false, "Designation name is required.", 0);
 
             var all = await _designationDataAccess.GetAllDesignationsAsync();
-            if (all.Any(d => d.DesignationName == designation.DesignationName && d.DepartmentId == designation.DepartmentId))
+            if (all.Any(d => d.DesignationName == designation.DesignationName ))
                 return (false, "Designation name already exists.", 0);
 
             int id = await _designationDataAccess.AddDesignationAsync(designation);
@@ -42,10 +43,10 @@ namespace EMD.BLL
         {
             return await _designationDataAccess.GetDesignationsCountAsync();
         }
-        public async Task<List<Designation>> GetAllDesignationsAsync()
+        public async Task<List<DesignationDTO>> GetAllDesignationsAsync()
         {
             var list = await _designationDataAccess.GetAllDesignationsAsync();
-            return list.OrderBy(d => d.DesignationName).ToList();
+            return list;
         }
         public async Task<(bool Success, string Message, Designation? Data)> GetDesignationByIdAsync(int id)
         {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EMD.BLL.DTOs;
+using EMD.EF.DTOs;
 using EMD.DAL.DA;
 using EMD.EF.Models;
 
