@@ -38,6 +38,11 @@ namespace EMD.BLL
                 ? (true, "Department deleted successfully.")
                 : (false, "Department not found.");
         }
+
+        public async Task<int> GetActiveDepartmentsCountAsync()
+        {
+            return await _departmentDataAccess.GetActiveDepartmentsCountAsync();
+        }
         public async Task<List<Department>> GetAllDepartmentsAsync()
         {
             var list = await _departmentDataAccess.GetAllDepartmentsAsync();

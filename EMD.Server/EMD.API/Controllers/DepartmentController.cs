@@ -97,6 +97,16 @@ namespace EMD.API.Controllers
                 ? Ok(result.Data)
                 : NotFound(result.Message);
         }
+
+        [EnableRateLimiting("GetLimiter")]
+        [HttpGet("ActiveCount")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetActiveDepartmentsCount()
+        {
+            var count = await _departmentBusiness.GetActiveDepartmentsCountAsync();
+            return Ok(count);
+        }
+
         [Authorize(Roles = "Admin")]
         [EnableRateLimiting("PutLimiter")]
         [HttpPut("Update")]

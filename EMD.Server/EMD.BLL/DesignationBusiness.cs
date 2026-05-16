@@ -37,6 +37,11 @@ namespace EMD.BLL
                 ? (true, "Designation deleted successfully.")
                 : (false, "Designation not found.");
         }
+
+        public async Task<int> GetDesignationsCountAsync()
+        {
+            return await _designationDataAccess.GetDesignationsCountAsync();
+        }
         public async Task<List<Designation>> GetAllDesignationsAsync()
         {
             var list = await _designationDataAccess.GetAllDesignationsAsync();

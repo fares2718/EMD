@@ -14,7 +14,7 @@ namespace EMD.DAL.DA
         }
         public async Task<int> AddDesignationAsync(Designation designation)
         {
-            await _context.Designations.AddAsync(designation);
+            _context.Designations.Add(designation);
             await _context.SaveChangesAsync();
             return designation.DesignationId;
         }
@@ -30,6 +30,13 @@ namespace EMD.DAL.DA
             return true;
         }
 
+        public async Task<int> GetDesignationsCountAsync()
+        {
+            return await _context.Designations
+            .AsNoTracking()
+            .CountAsync();
+        }
+
         // Get All
         public async Task<List<Designation>> GetAllDesignationsAsync()
         {
@@ -40,7 +47,6 @@ namespace EMD.DAL.DA
         public async Task<Designation?> GetDesignationByIdAsync(int id)
         {
             return await _context.Designations
-                .AsNoTracking()
                 .FindAsync(id);
         }
 
