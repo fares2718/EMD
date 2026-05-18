@@ -67,8 +67,13 @@
     </div>
 
     <div class="form-group">
-      <label>Designation Id</label>
-      <input type="number" formControlName="designationId">
+      <label>Designation </label>
+      <select formControlName="designationId">
+        <option value="">Select Designation</option>
+        @for(d of designations ; track d.designationId) {
+          <option [value]="d.designationId">{{ d.designationName }}</option>
+        }
+      </select>
     </div>
 
   </div>

@@ -2,6 +2,8 @@ import { Component, inject, input } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { EmployeeModel } from '../../../Models/employee-models/employee.model';
 import { EmployeeService } from '../../../Services/employee.service';
+import { DesignationService } from '../../../Services/designation.service';
+import { DesignationGetModel } from '../../../Models/designation-models/designation.get.model';
 
 @Component({
   selector: 'app-employee-form',
@@ -11,6 +13,7 @@ import { EmployeeService } from '../../../Services/employee.service';
 })
 export class EmployeeForm {
 private employeeService = inject(EmployeeService);
+private designationService = inject(DesignationService);
 
 form = new FormGroup({
 
@@ -84,11 +87,24 @@ form = new FormGroup({
       ]
     }),
 
-    designationId: new FormControl('', {
+    designation: new FormControl('', {
       validators: [Validators.required]
     })
 
   }, { validators: this.passwordMatchValidator });
+
+  designations: DesignationGetModel[] = [];
+
+  ngOnInit() {
+    this.designationService.getDesignations().subscribe({
+      next: (list) => {
+        this.designations = list;
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
 
 onSubmit(){
  const newEmployee: EmployeeModel = {
@@ -102,7 +118,7 @@ onSubmit(){
   pincode: this.form.value.pincode!,
   address: this.form.value.address!,
   altPhoneNo: this.form.value.altPhoneNo ?? '',
-  designationId: Number(this.form.value.designationId!),
+  designationId: Number(this.form.value.designation!),
  }
 
  this.employeeService.addEmployee(newEmployee).subscribe({

@@ -3,7 +3,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { EmployeeForm } from './Components/employee/employee-form/employee-form.component';
 import { EmployeeListComponent } from './Components/employee/employee-list/employee-list.component';
-import { Department } from './Components/department/department';
+import { DepartmentComponent } from './Components/department/department.component';
 import { Designation } from './Components/designation/designation';
 import { AuthGuard } from './Guards/auth-guard';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
@@ -59,7 +59,7 @@ export const routes: Routes = [
             },
             {
                 path:'departments',
-                component:Department
+                component:DepartmentComponent
             },
             {
                 path:'designations',
