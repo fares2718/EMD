@@ -23,7 +23,7 @@ export class DesignationService {
   }
 
   getDesignations(): Observable<DesignationGetModel[]> {
-    return this.http.get<DesignationGetModel[]>(`${this.apiUrl}`, {withCredentials:true})
+    return this.http.get<DesignationGetModel[]>(`${this.apiUrl}/All`, {withCredentials:true})
     .pipe(
       catchError(() => {
         //this.errorService.showError('Could not load designations');

@@ -10,7 +10,6 @@ import { MainLayoutComponent } from './Components/main-layout/main-layout.compon
 import { AdminDashboardComponent } from './Components/dashboard/admin-dashboard/admin-dashboard.component';
 import { EmployeeDashboardComponent } from './Components/dashboard/employee-dashboard/employee-dashboard.component';
 import { RoleGuard } from './Guards/role-guard';
-import { EmployeeCard } from './Components/employee/employee-card/employee-card';
 
 export const routes: Routes = [
     {
@@ -52,10 +51,6 @@ export const routes: Routes = [
             {
                 path:'employees',
                 component:EmployeeListComponent,
-            },
-            {
-                path:'employee/:id',
-                component: EmployeeCard
             },
             {
                 path:'departments',

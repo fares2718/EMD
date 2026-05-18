@@ -6,8 +6,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-header',
   imports: [],
-  templateUrl: './header.html',
-  styleUrl: './header.css',
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.css',
 })
 export class Header {
 private authService = inject(AuthService);
@@ -16,11 +16,8 @@ private destroyRef = inject(DestroyRef);
 logOut(){
   this.authService.logout()
   .pipe(takeUntilDestroyed(this.destroyRef))
-  .subscribe(
-    {
-      next: () => {this.router.navigate(['/login']);},
-    }
-  );
+  .subscribe();
+  this.router.navigate(['/login']);
 }
 
 }

@@ -4,6 +4,7 @@ using EMD.BLL;
 using EMD.BLL.DTOs;
 using EMD.DAL.DA;
 using EMD.EF;
+using EMD.EF.DTOs;
 using EMD.EF.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -80,6 +81,46 @@ public partial class Program
             options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 
             options.AddPolicy("AuthLimiter", httpContext =>
+            {
+                var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = 10,
+                    Window = TimeSpan.FromMinutes(15),
+                    QueueLimit = 0
+                });
+            });
+            options.AddPolicy("GetLimiter", httpContext =>
+            {
+                var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = 10,
+                    Window = TimeSpan.FromMinutes(15),
+                    QueueLimit = 0
+                });
+            });
+            options.AddPolicy("PostLimiter", httpContext =>
+            {
+                var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = 10,
+                    Window = TimeSpan.FromMinutes(15),
+                    QueueLimit = 0
+                });
+            });
+            options.AddPolicy("PutLimiter", httpContext =>
+            {
+                var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+                return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
+                {
+                    PermitLimit = 10,
+                    Window = TimeSpan.FromMinutes(15),
+                    QueueLimit = 0
+                });
+            });
+            options.AddPolicy("DeleteLimiter", httpContext =>
             {
                 var ip = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
                 return RateLimitPartition.GetFixedWindowLimiter(ip, _ => new FixedWindowRateLimiterOptions
